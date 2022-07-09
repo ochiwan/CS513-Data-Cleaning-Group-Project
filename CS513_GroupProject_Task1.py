@@ -17,7 +17,8 @@ import os
 # Read in the csv
 username = "ochig"                      # your username here (windows)
 wFolder = "Data Cleaning Project CS513" # working folder for the project here
-filepath = os.path.expanduser("~"+username+"/documents/"+wFolder+"/Economic_Indicators_2022_25Years.csv")
+#filepath = os.path.expanduser("~"+username+"/documents/"+wFolder+"/Economic_Indicators_2022_25Years.csv")
+filepath = 'C:/Users/ochig/documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Economic_Indicators_2022_25Years.csv'
 macroecon_df = pd.read_csv(filepath)
 
 # Country code and series code are unecessary, drop them
@@ -48,14 +49,11 @@ def series_time_permute(df):
     countries = np.unique(df["Country"].values)
     
     # List of statistic names found in series column
-    stats = np.unique(df["Series"].values)
+    stats = df.loc[0:30,"Series"].values
     
     # Initialize an empty dataframe with series as the column names
     colNames = np.r_[["Time","Country"], stats]
     df_perm = pd.DataFrame(columns=colNames)
-    
-    # Counter for indexing
-    ctr = 0
     
     # For each time step, and each country, list all stats
     # [time, country, stat1:statN]
@@ -92,7 +90,7 @@ macroecon_qy_df = series_time_permute(macroecon_qy_df)
 macroecon_monthly_df = series_time_permute(macroecon_monthly_df)
 
 # Export the files as csv
-savePath = os.path.expanduser("~"+username+"/documents/"+wFolder)
+savePath = 'C:/Users/ochig/documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project'
 macroecon_qy_df.to_csv(savePath+"/Task1_quarterly_and_yearly_data.csv")
 macroecon_monthly_df.to_csv(savePath+"/Task1_monthly_data.csv")
     
