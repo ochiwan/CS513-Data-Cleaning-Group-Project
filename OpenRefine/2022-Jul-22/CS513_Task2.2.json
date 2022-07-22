@@ -1,0 +1,546 @@
+[
+    {
+      "op": "core/column-removal",
+      "columnName": "Column",
+      "description": "Remove column Column"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Core CPI,not seas.adj,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Core CPI,not seas.adj,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "CPI Price, % y-o-y, median weighted, seas. adj.,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column CPI Price, % y-o-y, median weighted, seas. adj., using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "CPI Price, seas. adj.,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column CPI Price, seas. adj.,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "CPI Price, % y-o-y, not seas. adj.,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column CPI Price, % y-o-y, not seas. adj.,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Core CPI,seas.adj,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Core CPI,seas.adj,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "CPI Price,not seas.adj,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column CPI Price,not seas.adj,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "GDP,current LCU,millions,seas. adj.,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column GDP,current LCU,millions,seas. adj., using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "GDP,current US$,millions,seas. adj.,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column GDP,current US$,millions,seas. adj., using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Stock Markets, LCU,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Stock Markets, LCU,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Stock Markets, US$,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Stock Markets, US$,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Total Reserves,,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Total Reserves,,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Unemployment rate,Percent,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Unemployment rate,Percent,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Industrial Production, constant US$, seas. adj.,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Industrial Production, constant US$, seas. adj.,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Industrial Production, constant US$,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Industrial Production, constant US$,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, Price, US$, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, Price, US$, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, Price, US$, seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, Price, US$, seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, current US$, millions, seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, current US$, millions, seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, current US$, millions, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, current US$, millions, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, current US$, millions, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, constant US$, millions, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, constant US$, millions, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Imports Merchandise, Customs, constant US$, millions, seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Imports Merchandise, Customs, constant US$, millions, seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "GDP,constant 2010 US$,millions,seas. adj.,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column GDP,constant 2010 US$,millions,seas. adj., using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, Price, US$, seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, Price, US$, seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "GDP,constant 2010 LCU,millions,seas. adj.,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column GDP,constant 2010 LCU,millions,seas. adj., using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, current US$, millions, seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, Price, US$, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, Price, US$, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, Price, US$, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, Price, US$, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, current US$, millions, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, constant US$, millions, seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, constant US$, millions, seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exports Merchandise, Customs, constant US$, millions, not seas. adj.",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exports Merchandise, Customs, constant US$, millions, not seas. adj. using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exchange rate, old LCU per USD extended forward, period average,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exchange rate, old LCU per USD extended forward, period average,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Exchange rate, new LCU per USD extended backward, period average,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Exchange rate, new LCU per USD extended backward, period average,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/text-transform",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "columnName": "Retail Sales Volume,Index,,,",
+      "expression": "value.toNumber()",
+      "onError": "keep-original",
+      "repeat": false,
+      "repeatCount": 10,
+      "description": "Text transform on cells in column Retail Sales Volume,Index,,, using expression value.toNumber()"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "CPI Price, % y-o-y, median weighted, seas. adj.,",
+      "description": "Remove column CPI Price, % y-o-y, median weighted, seas. adj.,"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "GDP,current LCU,millions,seas. adj.,",
+      "description": "Remove column GDP,current LCU,millions,seas. adj.,"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Stock Markets, LCU,,,",
+      "description": "Remove column Stock Markets, LCU,,,"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Imports Merchandise, Customs, Price, US$, not seas. adj.",
+      "description": "Remove column Imports Merchandise, Customs, Price, US$, not seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Imports Merchandise, Customs, Price, US$, seas. adj.",
+      "description": "Remove column Imports Merchandise, Customs, Price, US$, seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "GDP,constant 2010 LCU,millions,seas. adj.,",
+      "description": "Remove column GDP,constant 2010 LCU,millions,seas. adj.,"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "GDP,constant 2010 US$,millions,seas. adj.,",
+      "description": "Remove column GDP,constant 2010 US$,millions,seas. adj.,"
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Exports Merchandise, Customs, Price, US$, seas. adj.",
+      "description": "Remove column Exports Merchandise, Customs, Price, US$, seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Exports Merchandise, Customs, Price, US$, not seas. adj.",
+      "description": "Remove column Exports Merchandise, Customs, Price, US$, not seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Imports Merchandise, Customs, constant US$, millions, not seas. adj.",
+      "description": "Remove column Imports Merchandise, Customs, constant US$, millions, not seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Imports Merchandise, Customs, constant US$, millions, seas. adj.",
+      "description": "Remove column Imports Merchandise, Customs, constant US$, millions, seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Exports Merchandise, Customs, constant US$, millions, seas. adj.",
+      "description": "Remove column Exports Merchandise, Customs, constant US$, millions, seas. adj."
+    },
+    {
+      "op": "core/column-removal",
+      "columnName": "Exports Merchandise, Customs, constant US$, millions, not seas. adj.",
+      "description": "Remove column Exports Merchandise, Customs, constant US$, millions, not seas. adj."
+    },
+    {
+      "op": "core/column-addition",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "baseColumnName": "Exports Merchandise, Customs, current US$, millions, seas. adj.",
+      "expression": "grel:(value - cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value) / cells['GDP,current US$,millions,seas. adj.,'].value",
+      "onError": "set-to-blank",
+      "newColumnName": "Import-Export Ratio, seas. adj.",
+      "columnInsertIndex": 16,
+      "description": "Create column Import-Export Ratio, seas. adj. at index 16 based on column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression grel:(value - cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value) / cells['GDP,current US$,millions,seas. adj.,'].value"
+    },
+    {
+      "op": "core/column-addition",
+      "engineConfig": {
+        "facets": [],
+        "mode": "row-based"
+      },
+      "baseColumnName": "Exports Merchandise, Customs, current US$, millions, seas. adj.",
+      "expression": "grel:(cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value - value) / cells['GDP,current US$,millions,seas. adj.,'].value",
+      "onError": "set-to-blank",
+      "newColumnName": "Export-Import Ratio, seas. adj.",
+      "columnInsertIndex": 16,
+      "description": "Create column Export-Import Ratio, seas. adj. at index 16 based on column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression grel:(cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value - value) / cells['GDP,current US$,millions,seas. adj.,'].value"
+    },
+    {
+      "op": "core/column-rename",
+      "oldColumnName": "Stock Markets, US$,,,",
+      "newColumnName": "Stock Markets, US$, Billions",
+      "description": "Rename column Stock Markets, US$,,, to Stock Markets, US$, Billions"
+    }
+  ]
