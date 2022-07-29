@@ -1,0 +1,381 @@
+#@begin Linear_OR #@desc Linear OpenRefine Workflow
+#@param newColumnName:Stock_Markets,_US$,_Billions
+#@param col-name:Exchange_rate,_old_LCU_per_USD_extended_forward,_period_average,,
+#@param newColumnName:Core_CPI_/_CPI,_not_seas._adj.
+#@param col-name:CPI_Price,not_seas.adj,,,
+#@param col-name:Exports_Merchandise,_Customs,_current_US$,_millions,_seas._adj.
+#@param newColumnName:Export-Import_Ratio,_seas._adj.
+#@param col-name:Core_CPI,not_seas.adj,,,
+#@param newColumnName:Import-Export_Ratio,_seas._adj.
+#@param col-name:GDP,current_LCU,millions,seas._adj.,
+#@param col-name:Total_Reserves,,,,
+#@param col-name:GDP,constant_2010_LCU,millions,seas._adj.,
+#@param col-name:Imports_Merchandise,_Customs,_constant_US$,_millions,_seas._adj.
+#@param newColumnName:Core_CPI_/_CPI,_seas._adj.
+#@param newColumnName:Exchange_rate,_new_LCU_per_USD_extended_backward,_period_average,,_(USD_to_EURO)
+#@param col-name:Imports_Merchandise,_Customs,_current_US$,_millions,_seas._adj.
+#@param col-name:GDP,current_US$,millions,seas._adj.,
+#@param newColumnName:Core_CPI_Seasonal_/_Core_CPI_Not_Seasonal
+#@param col-name:Core_CPI,seas.adj,,,
+#@param col-name:CPI_Price,_%_y-o-y,_not_seas._adj.,,
+#@param col-name:Imports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@param newColumnName:Industrial_Production_%_of_GDP
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_seas._adj.
+#@param expression:value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_current_US$,_millions,_not_seas._adj.
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@param col-name:Industrial_Production,_constant_US$,_seas._adj.,,
+#@param col-name:Exports_Merchandise,_Customs,_constant_US$,_millions,_not_seas._adj.
+#@param col-name:Imports_Merchandise,_Customs,_Price,_US$,_seas._adj.
+#@param col-name:Exports_Merchandise,_Customs,_constant_US$,_millions,_seas._adj.
+#@param col-name:CPI_Price,_seas._adj.,,,
+#@param oldColumnName:Exchange_rate,_new_LCU_per_USD_extended_backward,_period_average,,
+#@param col-name:Retail_Sales_Volume,Index,,,
+#@param newColumnName:CPI_seasonal_/_CPI_not_seasonal
+#@param col-name:Exchange_rate,_new_LCU_per_USD_extended_backward,_period_average,,
+#@param col-name:GDP,constant_2010_US$,millions,seas._adj.,
+#@param col-name:Industrial_Production,_constant_US$,,,
+#@param col-name:Column
+#@param col-name:Imports_Merchandise,_Customs,_constant_US$,_millions,_not_seas._adj.
+#@param col-name:Stock_Markets,_LCU,,,
+#@param col-name:Stock_Markets,_US$,,,
+#@param col-name:Unemployment_rate,Percent,,,
+#@param col-name:Exports_Merchandise,_Customs,_current_US$,_millions,_not_seas._adj.
+#@param col-name:CPI_Price,_%_y-o-y,_median_weighted,_seas._adj.,
+#@param oldColumnName:Stock_Markets,_US$,,,
+#@in table0
+#@out table58
+#@begin core/column-removal0#@desc Remove column Column
+#@param col-name:Column
+#@in table0
+#@out table1
+#@end core/column-removal0
+#@begin core/text-transform0#@desc Text transform on cells in column Core CPI,not seas.adj,,, using expression value.toNumber()
+#@param col-name:Core_CPI,not_seas.adj,,,
+#@param expression:value.toNumber()
+#@in table1
+#@out table2
+#@end core/text-transform0
+#@begin core/text-transform1#@desc Text transform on cells in column CPI Price, % y-o-y, median weighted, seas. adj., using expression value.toNumber()
+#@param col-name:CPI_Price,_%_y-o-y,_median_weighted,_seas._adj.,
+#@param expression:value.toNumber()
+#@in table2
+#@out table3
+#@end core/text-transform1
+#@begin core/text-transform2#@desc Text transform on cells in column CPI Price, seas. adj.,,, using expression value.toNumber()
+#@param col-name:CPI_Price,_seas._adj.,,,
+#@param expression:value.toNumber()
+#@in table3
+#@out table4
+#@end core/text-transform2
+#@begin core/text-transform3#@desc Text transform on cells in column CPI Price, % y-o-y, not seas. adj.,, using expression value.toNumber()
+#@param col-name:CPI_Price,_%_y-o-y,_not_seas._adj.,,
+#@param expression:value.toNumber()
+#@in table4
+#@out table5
+#@end core/text-transform3
+#@begin core/text-transform4#@desc Text transform on cells in column Core CPI,seas.adj,,, using expression value.toNumber()
+#@param col-name:Core_CPI,seas.adj,,,
+#@param expression:value.toNumber()
+#@in table5
+#@out table6
+#@end core/text-transform4
+#@begin core/text-transform5#@desc Text transform on cells in column CPI Price,not seas.adj,,, using expression value.toNumber()
+#@param col-name:CPI_Price,not_seas.adj,,,
+#@param expression:value.toNumber()
+#@in table6
+#@out table7
+#@end core/text-transform5
+#@begin core/text-transform6#@desc Text transform on cells in column GDP,current LCU,millions,seas. adj., using expression value.toNumber()
+#@param col-name:GDP,current_LCU,millions,seas._adj.,
+#@param expression:value.toNumber()
+#@in table7
+#@out table8
+#@end core/text-transform6
+#@begin core/text-transform7#@desc Text transform on cells in column GDP,current US$,millions,seas. adj., using expression value.toNumber()
+#@param col-name:GDP,current_US$,millions,seas._adj.,
+#@param expression:value.toNumber()
+#@in table8
+#@out table9
+#@end core/text-transform7
+#@begin core/text-transform8#@desc Text transform on cells in column Stock Markets, LCU,,, using expression value.toNumber()
+#@param col-name:Stock_Markets,_LCU,,,
+#@param expression:value.toNumber()
+#@in table9
+#@out table10
+#@end core/text-transform8
+#@begin core/text-transform9#@desc Text transform on cells in column Stock Markets, US$,,, using expression value.toNumber()
+#@param col-name:Stock_Markets,_US$,,,
+#@param expression:value.toNumber()
+#@in table10
+#@out table11
+#@end core/text-transform9
+#@begin core/text-transform10#@desc Text transform on cells in column Total Reserves,,,, using expression value.toNumber()
+#@param col-name:Total_Reserves,,,,
+#@param expression:value.toNumber()
+#@in table11
+#@out table12
+#@end core/text-transform10
+#@begin core/text-transform11#@desc Text transform on cells in column Unemployment rate,Percent,,, using expression value.toNumber()
+#@param col-name:Unemployment_rate,Percent,,,
+#@param expression:value.toNumber()
+#@in table12
+#@out table13
+#@end core/text-transform11
+#@begin core/text-transform12#@desc Text transform on cells in column Industrial Production, constant US$, seas. adj.,, using expression value.toNumber()
+#@param col-name:Industrial_Production,_constant_US$,_seas._adj.,,
+#@param expression:value.toNumber()
+#@in table13
+#@out table14
+#@end core/text-transform12
+#@begin core/text-transform13#@desc Text transform on cells in column Industrial Production, constant US$,,, using expression value.toNumber()
+#@param col-name:Industrial_Production,_constant_US$,,,
+#@param expression:value.toNumber()
+#@in table14
+#@out table15
+#@end core/text-transform13
+#@begin core/text-transform14#@desc Text transform on cells in column Imports Merchandise, Customs, Price, US$, not seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table15
+#@out table16
+#@end core/text-transform14
+#@begin core/text-transform15#@desc Text transform on cells in column Imports Merchandise, Customs, Price, US$, seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_Price,_US$,_seas._adj.
+#@param expression:value.toNumber()
+#@in table16
+#@out table17
+#@end core/text-transform15
+#@begin core/text-transform16#@desc Text transform on cells in column Imports Merchandise, Customs, current US$, millions, seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_current_US$,_millions,_seas._adj.
+#@param expression:value.toNumber()
+#@in table17
+#@out table18
+#@end core/text-transform16
+#@begin core/text-transform17#@desc Text transform on cells in column Imports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_current_US$,_millions,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table18
+#@out table19
+#@end core/text-transform17
+#@begin core/text-transform18#@desc Text transform on cells in column Imports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_current_US$,_millions,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table19
+#@out table20
+#@end core/text-transform18
+#@begin core/text-transform19#@desc Text transform on cells in column Imports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_current_US$,_millions,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table20
+#@out table21
+#@end core/text-transform19
+#@begin core/text-transform20#@desc Text transform on cells in column Imports Merchandise, Customs, constant US$, millions, not seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_constant_US$,_millions,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table21
+#@out table22
+#@end core/text-transform20
+#@begin core/text-transform21#@desc Text transform on cells in column Imports Merchandise, Customs, constant US$, millions, seas. adj. using expression value.toNumber()
+#@param col-name:Imports_Merchandise,_Customs,_constant_US$,_millions,_seas._adj.
+#@param expression:value.toNumber()
+#@in table22
+#@out table23
+#@end core/text-transform21
+#@begin core/text-transform22#@desc Text transform on cells in column GDP,constant 2010 US$,millions,seas. adj., using expression value.toNumber()
+#@param col-name:GDP,constant_2010_US$,millions,seas._adj.,
+#@param expression:value.toNumber()
+#@in table23
+#@out table24
+#@end core/text-transform22
+#@begin core/text-transform23#@desc Text transform on cells in column Exports Merchandise, Customs, Price, US$, seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_seas._adj.
+#@param expression:value.toNumber()
+#@in table24
+#@out table25
+#@end core/text-transform23
+#@begin core/text-transform24#@desc Text transform on cells in column GDP,constant 2010 LCU,millions,seas. adj., using expression value.toNumber()
+#@param col-name:GDP,constant_2010_LCU,millions,seas._adj.,
+#@param expression:value.toNumber()
+#@in table25
+#@out table26
+#@end core/text-transform24
+#@begin core/text-transform25#@desc Text transform on cells in column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_current_US$,_millions,_seas._adj.
+#@param expression:value.toNumber()
+#@in table26
+#@out table27
+#@end core/text-transform25
+#@begin core/text-transform26#@desc Text transform on cells in column Exports Merchandise, Customs, Price, US$, not seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table27
+#@out table28
+#@end core/text-transform26
+#@begin core/text-transform27#@desc Text transform on cells in column Exports Merchandise, Customs, Price, US$, not seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table28
+#@out table29
+#@end core/text-transform27
+#@begin core/text-transform28#@desc Text transform on cells in column Exports Merchandise, Customs, current US$, millions, not seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_current_US$,_millions,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table29
+#@out table30
+#@end core/text-transform28
+#@begin core/text-transform29#@desc Text transform on cells in column Exports Merchandise, Customs, constant US$, millions, seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_constant_US$,_millions,_seas._adj.
+#@param expression:value.toNumber()
+#@in table30
+#@out table31
+#@end core/text-transform29
+#@begin core/text-transform30#@desc Text transform on cells in column Exports Merchandise, Customs, constant US$, millions, not seas. adj. using expression value.toNumber()
+#@param col-name:Exports_Merchandise,_Customs,_constant_US$,_millions,_not_seas._adj.
+#@param expression:value.toNumber()
+#@in table31
+#@out table32
+#@end core/text-transform30
+#@begin core/text-transform31#@desc Text transform on cells in column Exchange rate, old LCU per USD extended forward, period average,, using expression value.toNumber()
+#@param col-name:Exchange_rate,_old_LCU_per_USD_extended_forward,_period_average,,
+#@param expression:value.toNumber()
+#@in table32
+#@out table33
+#@end core/text-transform31
+#@begin core/text-transform32#@desc Text transform on cells in column Exchange rate, new LCU per USD extended backward, period average,, using expression value.toNumber()
+#@param col-name:Exchange_rate,_new_LCU_per_USD_extended_backward,_period_average,,
+#@param expression:value.toNumber()
+#@in table33
+#@out table34
+#@end core/text-transform32
+#@begin core/text-transform33#@desc Text transform on cells in column Retail Sales Volume,Index,,, using expression value.toNumber()
+#@param col-name:Retail_Sales_Volume,Index,,,
+#@param expression:value.toNumber()
+#@in table34
+#@out table35
+#@end core/text-transform33
+#@begin core/column-removal1#@desc Remove column CPI Price, % y-o-y, median weighted, seas. adj.,
+#@param col-name:CPI_Price,_%_y-o-y,_median_weighted,_seas._adj.,
+#@in table35
+#@out table36
+#@end core/column-removal1
+#@begin core/column-removal2#@desc Remove column GDP,current LCU,millions,seas. adj.,
+#@param col-name:GDP,current_LCU,millions,seas._adj.,
+#@in table36
+#@out table37
+#@end core/column-removal2
+#@begin core/column-removal3#@desc Remove column Stock Markets, LCU,,,
+#@param col-name:Stock_Markets,_LCU,,,
+#@in table37
+#@out table38
+#@end core/column-removal3
+#@begin core/column-removal4#@desc Remove column Imports Merchandise, Customs, Price, US$, not seas. adj.
+#@param col-name:Imports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@in table38
+#@out table39
+#@end core/column-removal4
+#@begin core/column-removal5#@desc Remove column Imports Merchandise, Customs, Price, US$, seas. adj.
+#@param col-name:Imports_Merchandise,_Customs,_Price,_US$,_seas._adj.
+#@in table39
+#@out table40
+#@end core/column-removal5
+#@begin core/column-removal6#@desc Remove column GDP,constant 2010 LCU,millions,seas. adj.,
+#@param col-name:GDP,constant_2010_LCU,millions,seas._adj.,
+#@in table40
+#@out table41
+#@end core/column-removal6
+#@begin core/column-removal7#@desc Remove column GDP,constant 2010 US$,millions,seas. adj.,
+#@param col-name:GDP,constant_2010_US$,millions,seas._adj.,
+#@in table41
+#@out table42
+#@end core/column-removal7
+#@begin core/column-removal8#@desc Remove column Exports Merchandise, Customs, Price, US$, seas. adj.
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_seas._adj.
+#@in table42
+#@out table43
+#@end core/column-removal8
+#@begin core/column-removal9#@desc Remove column Exports Merchandise, Customs, Price, US$, not seas. adj.
+#@param col-name:Exports_Merchandise,_Customs,_Price,_US$,_not_seas._adj.
+#@in table43
+#@out table44
+#@end core/column-removal9
+#@begin core/column-removal10#@desc Remove column Imports Merchandise, Customs, constant US$, millions, not seas. adj.
+#@param col-name:Imports_Merchandise,_Customs,_constant_US$,_millions,_not_seas._adj.
+#@in table44
+#@out table45
+#@end core/column-removal10
+#@begin core/column-removal11#@desc Remove column Imports Merchandise, Customs, constant US$, millions, seas. adj.
+#@param col-name:Imports_Merchandise,_Customs,_constant_US$,_millions,_seas._adj.
+#@in table45
+#@out table46
+#@end core/column-removal11
+#@begin core/column-removal12#@desc Remove column Exports Merchandise, Customs, constant US$, millions, seas. adj.
+#@param col-name:Exports_Merchandise,_Customs,_constant_US$,_millions,_seas._adj.
+#@in table46
+#@out table47
+#@end core/column-removal12
+#@begin core/column-removal13#@desc Remove column Exports Merchandise, Customs, constant US$, millions, not seas. adj.
+#@param col-name:Exports_Merchandise,_Customs,_constant_US$,_millions,_not_seas._adj.
+#@in table47
+#@out table48
+#@end core/column-removal13
+#@begin core/column-addition0#@desc Create column Import-Export Ratio, seas. adj. at index 16 based on column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression grel:(value - cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value) / cells['GDP,current US$,millions,seas. adj.,'].value
+#@param col-name:Exports_Merchandise,_Customs,_current_US$,_millions,_seas._adj.
+#@param newColumnName:"Import-Export_Ratio,_seas._adj."
+#@in table48
+#@out table49
+#@end core/column-addition0
+#@begin core/column-addition1#@desc Create column Export-Import Ratio, seas. adj. at index 16 based on column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression grel:(cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value - value) / cells['GDP,current US$,millions,seas. adj.,'].value
+#@param col-name:Exports_Merchandise,_Customs,_current_US$,_millions,_seas._adj.
+#@param newColumnName:"Export-Import_Ratio,_seas._adj."
+#@in table49
+#@out table50
+#@end core/column-addition1
+#@begin core/column-addition2#@desc Create column Industrial Production % of GDP at index 13 based on column Industrial Production, constant US$,,, using expression grel:value / (cells['GDP,current US$,millions,seas. adj.,'].value * 1000000)
+#@param col-name:Industrial_Production,_constant_US$,,,
+#@param newColumnName:"Industrial_Production_%_of_GDP"
+#@in table50
+#@out table51
+#@end core/column-addition2
+#@begin core/column-addition3#@desc Create column CPI seasonal / CPI not seasonal at index 4 based on column CPI Price, seas. adj.,,, using expression grel:value / cells['CPI Price,not seas.adj,,,'].value
+#@param col-name:CPI_Price,_seas._adj.,,,
+#@param newColumnName:"CPI_seasonal_/_CPI_not_seasonal"
+#@in table51
+#@out table52
+#@end core/column-addition3
+#@begin core/column-addition4#@desc Create column Core CPI Seasonal / Core CPI Not Seasonal at index 7 based on column Core CPI,seas.adj,,, using expression grel:value / cells['Core CPI,not seas.adj,,,'].value
+#@param col-name:Core_CPI,seas.adj,,,
+#@param newColumnName:"Core_CPI_Seasonal_/_Core_CPI_Not_Seasonal"
+#@in table52
+#@out table53
+#@end core/column-addition4
+#@begin core/column-addition5#@desc Create column Core CPI / CPI, seas. adj. at index 7 based on column Core CPI,seas.adj,,, using expression grel:value / cells['CPI Price, seas. adj.,,,'].value
+#@param col-name:Core_CPI,seas.adj,,,
+#@param newColumnName:"Core_CPI_/_CPI,_seas._adj."
+#@in table53
+#@out table54
+#@end core/column-addition5
+#@begin core/column-addition6#@desc Create column Core CPI / CPI, not seas. adj. at index 3 based on column Core CPI,not seas.adj,,, using expression grel:value / cells['CPI Price,not seas.adj,,,'].value
+#@param col-name:Core_CPI,not_seas.adj,,,
+#@param newColumnName:"Core_CPI_/_CPI,_not_seas._adj."
+#@in table54
+#@out table55
+#@end core/column-addition6
+#@begin core/column-rename0#@desc Rename column Stock Markets, US$,,, to Stock Markets, US$, Billions
+#@param oldColumnName:Stock_Markets,_US$,,,
+#@param newColumnName:Stock_Markets,_US$,_Billions
+#@in table55
+#@out table56
+#@end core/column-rename0
+#@begin core/column-removal14#@desc Remove column Total Reserves,,,,
+#@param col-name:Total_Reserves,,,,
+#@in table56
+#@out table57
+#@end core/column-removal14
+#@begin core/column-rename1#@desc Rename column Exchange rate, new LCU per USD extended backward, period average,, to Exchange rate, new LCU per USD extended backward, period average,, (USD to EURO)
+#@param oldColumnName:Exchange_rate,_new_LCU_per_USD_extended_backward,_period_average,,
+#@param newColumnName:Exchange_rate,_new_LCU_per_USD_extended_backward,_period_average,,_(USD_to_EURO)
+#@in table57
+#@out table58
+#@end core/column-rename1
+#@end Linear_OR
