@@ -1,0 +1,51 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label=CS513_GroupProject_Task1
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+get_csv_file
+drop_columns_and_NA
+split_monthly_quarterly_yearly
+quarterly_series_time_permute
+monthly_series_time_permute
+export_as_csv
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"macroecon_qy_df.csv"
+"macroecon_monthly_df.csv"
+macroecon_df
+macroecon_df2
+macroecon_qy_df
+macroecon_monthly_df
+macroecon_qy_df_permuted
+macroecon_monthly_df_permuted
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+filepath [shape=record rankdir=LR label="{<f0> filepath |<f1> file\:Economic_Indicators_2022_25Years.csv}"];
+get_csv_file -> macroecon_df
+username -> get_csv_file
+wFolder -> get_csv_file
+filepath -> get_csv_file
+drop_columns_and_NA -> macroecon_df2
+macroecon_df -> drop_columns_and_NA
+split_monthly_quarterly_yearly -> macroecon_qy_df
+split_monthly_quarterly_yearly -> macroecon_monthly_df
+macroecon_df2 -> split_monthly_quarterly_yearly
+quarterly_series_time_permute -> macroecon_qy_df_permuted
+macroecon_qy_df -> quarterly_series_time_permute
+monthly_series_time_permute -> macroecon_monthly_df_permuted
+macroecon_monthly_df -> monthly_series_time_permute
+export_as_csv -> "macroecon_qy_df.csv"
+export_as_csv -> "macroecon_monthly_df.csv"
+macroecon_qy_df_permuted -> export_as_csv
+macroecon_monthly_df_permuted -> export_as_csv
+}}
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+filepath_input_port [label=""]
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+"macroecon_qy_df.csv_output_port" [label=""]
+"macroecon_monthly_df.csv_output_port" [label=""]
+filepath_input_port -> filepath
+"macroecon_qy_df.csv" -> "macroecon_qy_df.csv_output_port"
+"macroecon_monthly_df.csv" -> "macroecon_monthly_df.csv_output_port"
+}
