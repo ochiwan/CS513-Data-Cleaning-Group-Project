@@ -11,8 +11,14 @@ Accomplishes Task 3 for the CS513 Group Project
 import pandas as pd
 import numpy as np
 import os
-print(pd.__version__)
+
 dir = str(os.getcwd())
+
+# @BEGIN Task3
+# @IN filepath @URI file:~/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-16/Task2.1_quarterly_and_yearly_data_postPandas.csv
+# @IN filepath @URI file:~/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-22/Task2.2_monthly_data_postPandas.csv#
+# @OUT Task3_monthly_data.csv @URI file:Task3_monthly_data.csv
+# @OUT Task3_quarterly_and_yearly_data.csv @URI file:Task3_quarterly_and_yearly_data.csv
 
 # Read in the csv
 #username = "shassan"                      # your username here (windows)
@@ -29,6 +35,10 @@ df_Jul22 = df_Jul22.fillna('')
 stock_market_Jul16 = df_Jul16
 stock_market_Jul22 = df_Jul22
 
+# Get stock market total
+# @BEGIN getStockMarketTotal
+# @PARAM df
+# @RETURN df
 def getStockMarketTotal(df):
     US_stockMarket_thisYear = 0
     field =  'Stock Markets, US$, Billions'
@@ -46,10 +56,15 @@ def getStockMarketTotal(df):
         
     df = df.fillna('')
     return df
+# @END getStockMarketTotal
 
 stock_market_Jul16 = getStockMarketTotal(stock_market_Jul16)
 stock_market_Jul22 = getStockMarketTotal(stock_market_Jul22)
 
+# Read in the csv
+# @BEGIN getImportExportRelations
+# @PARAM df
+# @OUT df
 def getImportExportRelations(df):
     US_importExport_thisYear = 0
     US_exportImport_thisYear = 0
@@ -101,10 +116,15 @@ def getImportExportRelations(df):
         
     df = df.fillna('')
     return df
+# @END getImportExportRelations
 
 stock_market_Jul16 = getImportExportRelations(stock_market_Jul16)
 stock_market_Jul22 = getImportExportRelations(stock_market_Jul22)
 
+# Correlation of GDP to unemployment rate
+# @BEGIN getUSAUnemploymentRate @DESC Get unemployment rate for USA
+# @IN df
+# @OUT df
 def getUSAUnemploymentRate(df):
     US_unemployment_thisYear = 0
     field =  'Unemployment rate,Percent,,,'
@@ -122,13 +142,22 @@ def getUSAUnemploymentRate(df):
         
     df = df.fillna('')
     return df
+# @END getUSAUnemploymentRate
 
 stock_market_Jul16 = getUSAUnemploymentRate(stock_market_Jul16)
 stock_market_Jul22 = getUSAUnemploymentRate(stock_market_Jul22)
 
 print(stock_market_Jul22)
 
-# Save the csvs
+# Export the files as csv
+# @BEGIN export_as_csv
+# @IN df
+# @OUT Task3_monthly_data.csv
+# @OUT Task3_quarterly_and_yearly_data.csv
 savePath = os.path.expanduser('~/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_3')
 stock_market_Jul16.to_csv(savePath+"/Task3_quarterly_and_yearly_data.csv")
 stock_market_Jul22.to_csv(savePath+"/Task3_monthly_data.csv")
+# @END export_as_csv
+
+# @END Task3
+
