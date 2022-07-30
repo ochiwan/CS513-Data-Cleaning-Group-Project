@@ -15,10 +15,10 @@ print(pd.__version__)
 dir = str(os.getcwd())
 
 # Read in the csv
-username = "shassan"                      # your username here (windows)
-wFolder = "Data Cleaning Project CS513" # working folder for the project here
-filepath_Jul16 = dir + '/OpenRefine/2022-Jul-16/Task2.1_quarterly_and_yearly_data_postPandas.csv'
-filepath_Jul22 = dir + '/OpenRefine/2022-Jul-22/Task2.2_monthly_data_postPandas.csv'
+#username = "shassan"                      # your username here (windows)
+#wFolder = "Data Cleaning Project CS513" # working folder for the project here
+filepath_Jul16 = os.path.expanduser('~/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-16/Task2.1_quarterly_and_yearly_data_postPandas.csv')
+filepath_Jul22 = os.path.expanduser('~/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-22/Task2.2_monthly_data_postPandas.csv')
 
 df_Jul16 = pd.read_csv(filepath_Jul16)
 df_Jul22 = pd.read_csv(filepath_Jul22)
@@ -127,3 +127,8 @@ stock_market_Jul16 = getUSAUnemploymentRate(stock_market_Jul16)
 stock_market_Jul22 = getUSAUnemploymentRate(stock_market_Jul22)
 
 print(stock_market_Jul22)
+
+# Save the csvs
+savePath = os.path.expanduser('~/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_3')
+stock_market_Jul16.to_csv(savePath+"/Task3_quarterly_and_yearly_data.csv")
+stock_market_Jul22.to_csv(savePath+"/Task3_monthly_data.csv")
