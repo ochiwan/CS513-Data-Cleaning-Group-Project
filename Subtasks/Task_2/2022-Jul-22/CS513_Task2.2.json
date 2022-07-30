@@ -512,30 +512,9 @@
       "description": "Remove column Exports Merchandise, Customs, constant US$, millions, not seas. adj."
     },
     {
-      "op": "core/column-addition",
-      "engineConfig": {
-        "facets": [],
-        "mode": "row-based"
-      },
-      "baseColumnName": "Exports Merchandise, Customs, current US$, millions, seas. adj.",
-      "expression": "grel:(value - cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value) / cells['GDP,current US$,millions,seas. adj.,'].value",
-      "onError": "set-to-blank",
-      "newColumnName": "Import-Export Ratio, seas. adj.",
-      "columnInsertIndex": 16,
-      "description": "Create column Import-Export Ratio, seas. adj. at index 16 based on column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression grel:(value - cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value) / cells['GDP,current US$,millions,seas. adj.,'].value"
-    },
-    {
-      "op": "core/column-addition",
-      "engineConfig": {
-        "facets": [],
-        "mode": "row-based"
-      },
-      "baseColumnName": "Exports Merchandise, Customs, current US$, millions, seas. adj.",
-      "expression": "grel:(cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value - value) / cells['GDP,current US$,millions,seas. adj.,'].value",
-      "onError": "set-to-blank",
-      "newColumnName": "Export-Import Ratio, seas. adj.",
-      "columnInsertIndex": 16,
-      "description": "Create column Export-Import Ratio, seas. adj. at index 16 based on column Exports Merchandise, Customs, current US$, millions, seas. adj. using expression grel:(cells['Imports Merchandise, Customs, current US$, millions, seas. adj.'].value - value) / cells['GDP,current US$,millions,seas. adj.,'].value"
+      "op": "core/column-removal",
+      "columnName": "GDP,current US$,millions,seas. adj.,",
+      "description": "Remove column GDP,current US$,millions,seas. adj.,"
     },
     {
       "op": "core/column-rename",

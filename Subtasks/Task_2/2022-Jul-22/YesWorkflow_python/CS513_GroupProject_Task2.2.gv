@@ -1,0 +1,42 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="Task2.2"
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+get_csv_file
+fill_na
+GDP_to_unemploymment [shape=record rankdir=LR label="{<f0> GDP_to_unemploymment |<f1> Compute normalized GDP / unemployment}"];
+retail_sales_volume_to_CPI [shape=record rankdir=LR label="{<f0> retail_sales_volume_to_CPI |<f1> Compute the normalized \n retail sales volume / CPI}"];
+stock_market_value_to_CPI [shape=record rankdir=LR label="{<f0> stock_market_value_to_CPI |<f1> Compute the normalized \n stock markets value / CPI}"];
+export_as_csv
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"Task2.2_monthly_data_postPandas.csv"
+df
+df_noNA
+df2
+df3
+df_wCorrelations
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+filepath [shape=record rankdir=LR label="{<f0> filepath |<f1> file\:/OpenRefine/2022-Jul-22/Task2.2_monthly_data_2022Jul22.csv}"];
+get_csv_file -> df
+filepath -> get_csv_file
+fill_na -> df_noNA
+df -> fill_na
+GDP_to_unemploymment -> df2
+df_noNA -> GDP_to_unemploymment
+retail_sales_volume_to_CPI -> df3
+df2 -> retail_sales_volume_to_CPI
+stock_market_value_to_CPI -> df_wCorrelations
+df3 -> stock_market_value_to_CPI
+export_as_csv -> "Task2.2_monthly_data_postPandas.csv"
+df_wCorrelations -> export_as_csv
+}}
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+filepath_input_port [label=""]
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+"Task2.2_monthly_data_postPandas.csv_output_port" [label=""]
+filepath_input_port -> filepath
+"Task2.2_monthly_data_postPandas.csv" -> "Task2.2_monthly_data_postPandas.csv_output_port"
+}
