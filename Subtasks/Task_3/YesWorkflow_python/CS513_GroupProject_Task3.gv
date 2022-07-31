@@ -1,0 +1,35 @@
+digraph Workflow {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label=Task3
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+getStockMarketTotal
+getImportExportRelations
+getUSAUnemploymentRate [shape=record rankdir=LR label="{{<f0> getUSAUnemploymentRate |<f1> Get unemployment rate for USA}}"];
+stock_market_total_jul16 [shape=record rankdir=LR label="{{<f0> stock_market_total_jul16 |<f1> Compute stock market total for July 16}}"];
+stock_market_total_jul22 [shape=record rankdir=LR label="{{<f0> stock_market_total_jul22 |<f1> Compute stock market total for July 22}}"];
+import_export_relations_jul16 [shape=record rankdir=LR label="{{<f0> import_export_relations_jul16 |<f1> Compute import export relations for July 16}}"];
+import_export_relation_jul22 [shape=record rankdir=LR label="{{<f0> import_export_relation_jul22 |<f1> Compute import export relations for July 22}}"];
+USAUnemploymentRate_jul16 [shape=record rankdir=LR label="{{<f0> USAUnemploymentRate_jul16 |<f1> Compute import export relations for July 22}}"];
+USAUnemploymentRate_jul22 [shape=record rankdir=LR label="{{<f0> USAUnemploymentRate_jul22 |<f1> Compute import export relations for July 22}}"];
+export_as_csv
+edge[fontname=Helvetica]
+stock_market_total_jul16 -> import_export_relations_jul16 [label=df_jul16_2]
+stock_market_total_jul22 -> import_export_relation_jul22 [label=df_jul22_2]
+import_export_relation_jul22 -> USAUnemploymentRate_jul22 [label=df_jul22_3]
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+"Task3_quarterly_and_yearly_data.csv_output_port" [label=""]
+}}
+edge[fontname=Helvetica]
+edge[fontname=Helvetica]
+export_as_csv -> "Task3_quarterly_and_yearly_data.csv_output_port" [label="Task3_quarterly_and_yearly_data.csv"]
+}
