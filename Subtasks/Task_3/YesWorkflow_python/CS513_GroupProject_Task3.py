@@ -47,7 +47,7 @@ def getImportExportRelations(df):
     exportImport = 'Export-Import Ratio, seas. adj.'
     retailSales = 'Retail Sales Volume,Index,,,'
     industrialProductionGDP = 'Industrial Production, constant US$,,,'
-    CPI = 'CPI Price, % y-o-y, not seas. adj.,,'
+    coreCPI = 'Core CPI,not seas.adj,,,'
     
     index = 0
     for i in range(0, len(df)-10):   
@@ -57,33 +57,32 @@ def getImportExportRelations(df):
         US_exportImport_thisYear = df.loc[index, exportImport]
         US_retail_sales = df.loc[index, retailSales]
         US_industrialProductionGDP = df.loc[index, industrialProductionGDP]
-        US_CPI = df.loc[index, CPI]
+        US_coreCPI = df.loc[index, coreCPI]
         
         # import/export
         if isinstance(US_importExport_thisYear, str) or isinstance(df.loc[i, importExport],str):
-            df.loc[i,'Export-Import Ratio / US Import-Export Ratio'] = ''
-            df.loc[i,'Import-Export Ratio / US Export-Import Ratio'] = ''
+            df.loc[i,'Import/Export'] = ''
         else:
-            df.loc[i,'Export-Import Ratio / US Import-Export Ratio'] = df.loc[i, exportImport] / US_importExport_thisYear
-            df.loc[i,'Import-Export Ratio / US Export-Import Ratio'] = df.loc[i, importExport] / US_exportImport_thisYear
+            df.loc[i,'Import/Export'] = df.loc[i, exportImport] / US_importExport_thisYear
+            df.loc[i,'Export/Import'] = df.loc[i, importExport] / US_exportImport_thisYear
 
         # retail sales
         if isinstance(US_retail_sales, str) or isinstance(df.loc[i, retailSales],str):
-            df.loc[i,'Retail Sales / US Retail Sales'] = ''
+            df.loc[i,'Retail Sales'] = ''
         else:
-            df.loc[i,'Retail Sales / US Retail Sales'] = df.loc[i, retailSales] / US_retail_sales
+            df.loc[i,'Retail Sales'] = df.loc[i, retailSales] / US_retail_sales
 
         # industrial prod GDP
         if isinstance(US_industrialProductionGDP, str) or isinstance(df.loc[i, industrialProductionGDP],str):
-            df.loc[i,'Industrial Production / US Industrial Production'] = ''
+            df.loc[i,'Industrial Production GDP'] = ''
         else: 
-            df.loc[i,'Industrial Production / US Industrial Production'] = df.loc[i, industrialProductionGDP] / US_industrialProductionGDP
+            df.loc[i,'Industrial Production GDP'] = df.loc[i, industrialProductionGDP] / US_industrialProductionGDP
         
         # core CPI
-        if isinstance(US_CPI, str) or isinstance(df.loc[i, CPI],str):
-            df.loc[i,'CPI / US CPI'] = ''
+        if isinstance(US_coreCPI, str) or isinstance(df.loc[i, coreCPI],str):
+            df.loc[i,'Core CPI'] = ''
         else:
-            df.loc[i,'CPI / US CPI'] = df.loc[i, CPI] / US_CPI
+            df.loc[i,'Core CPI'] = df.loc[i, coreCPI] / US_coreCPI
             
         
     df = df.fillna('')
@@ -169,12 +168,8 @@ stock_market_Jul22 = getUSAUnemploymentRate(df_Jul22)
 # @IN df_jul22_3
 # @OUT df_jul16_4
 # @OUT df_jul22_4
-ctr = 0
-for ii in range(1,int(np.ceil(len(stock_market_Jul16)/50))):
-    stock_market_Jul16.loc[ctr:ctr+10,'Time'] = stock_market_Jul16.loc[ctr:ctr+10,'Time'].str.slice(0,4)
-    stock_market_Jul16.loc[ctr+10:ctr+50,'Time'] = stock_market_Jul16.loc[ctr+10:ctr+50,'Time'].str.slice(0,6)
-    ctr = ii*50
-stock_market_Jul22['Time'] = stock_market_Jul22['Time'].str.slice(0,7)
+stock_market_Jul16['Time'] = stock_market_Jul16['Time'].str.slice(0,4)
+stock_market_Jul22['Time'] = stock_market_Jul22['Time'].str.slice(0,4)
 # @END Clean_Time_Labels
 
 # Clean up extra index

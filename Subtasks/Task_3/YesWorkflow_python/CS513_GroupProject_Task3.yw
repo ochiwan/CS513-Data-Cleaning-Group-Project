@@ -1,73 +1,68 @@
--*- coding: utf-8 -*-
-Created on
-Accomplishes Task 3 for the CS513 Group Project
-@author: shassan
 need pandas and numpy for this task
 Read in the csv
 username = "shassan"
 wFolder = "Data Cleaning Project CS513" # working folder for the project here
-@BEGIN Task3
-@IN filepath @URI file:~/Desktop/projects/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-22/Task2.2_monthly_data_postPandas.csv#
-@OUT Task3_quarterly_and_yearly_data.csv @URI file:Task3_quarterly_and_yearly_data.csv
-Get stock market total
-@BEGIN getStockMarketTotal
-@PARAM stock_market_df
-@OUT stockMarketTotal
-@END getStockMarketTotal
-Read in the csv
-@BEGIN getImportExportRelations
-@PARAM stock_market_df
-@OUT importExportRelations
 import/export
 retail sales
 industrial prod GDP
 core CPI
-@END getImportExportRelations
-Correlation of GDP to unemployment rate
-@BEGIN getUSAUnemploymentRate @DESC Get unemployment rate for USA
-@PARAM stock_market_Jul16
-@OUT USAUnemploymentRateJul16
-@END getUSAUnemploymentRate
+@BEGIN Task3
+@IN filepath_Task2_1 @URI file:CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-16/Task2.1_quarterly_and_yearly_data_postPandas.csv
+@IN filepath_Task2_2 @URI file:CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-22/Task2.2_monthly_data_postPandas.csv
+@OUT Task3_quarterly_and_yearly_data.csv @URI file:Task3_quarterly_and_yearly_data.csv
+@OUT Task3_monthly_data.csv @URI file:Task3_monthly_data.csv
+@BEGIN Read_csv
+@PARAM filepath_Task2_1
+@PARAM filepath_Task2_2
+@OUT df_Jul16
+@OUT df_Jul22
+Pandas call to read csv
+@END Read_csv
+@BEGIN fill_NA
+@IN df_Jul16
+@IN df_Jul22
+@OUT df_Jul16_noNA
+@OUT df_Jul22_noNA
+@END fill_NA
+Quarterly/yearly import export relations
+@BEGIN getImportExportRelations_ @ DESC Get quarterly/yearly \n import-export relations \n to U.S.A.
+@IN df_Jul16_noNA
+@OUT df_Jul16_0
+@END getImportExportRelations_
 Stock Market Total
-@BEGIN stock_market_total_jul16 @DESC Compute stock market total for July 16
-@IN df_jul16
-@OUT df_jul16_2
-@END stock_market_total_jul16
-Stock Market Total
-@BEGIN stock_market_total_jul22 @DESC Compute stock market total for July 22
-@IN df_jul22
+@BEGIN stock_market_total_ @DESC Compute stock market total \n relation to U.S.
+@IN df_Jul16_0
+@IN df_Jul22_noNA
+@OUT df_july16_2
 @OUT df_jul22_2
-@END stock_market_total_jul22
+@END stock_market_total_
 Import Export Relations
-@BEGIN import_export_relations_jul16 @DESC Compute import export relations for July 16
-@IN df_jul16_2
-@OUT df_jul16_3
-stock_market_Jul16 = getImportExportRelations(stock_market_Jul16)
-@END import_export_relations_jul16
-Import Export Relations
-@BEGIN import_export_relation_jul22 @DESC Compute import export relations for July 22
+@BEGIN getUSAUnemploymentRate_ @DESC Compute import export relations
+@IN df_july16_2
 @IN df_jul22_2
+@OUT df_jul16_3
 @OUT df_jul22_3
-stock_market_Jul22 = getImportExportRelations(stock_market_Jul22)
-@END import_export_relation_jul22
-Import Export Relations
-@BEGIN USAUnemploymentRate_jul16 @DESC Compute import export relations for July 22
-@IN df_july16_3
-@OUT df_jul16_4
-@END USAUnemploymentRate_jul16
-Import Export Relations
-@BEGIN USAUnemploymentRate_jul22 @DESC Compute import export relations for July 22
+@END getUSAUnemploymentRate_
+Clean up the year label
+@BEGIN Clean_Time_Labels
+@IN df_jul16_3
 @IN df_jul22_3
+@OUT df_jul16_4
 @OUT df_jul22_4
-@END USAUnemploymentRate_jul22
+@END Clean_Time_Labels
+Clean up extra index
+@BEGIN Remove_Extra_Index @DESC Remove extra indices \n generated from Pandas operations
+@IN df_jul16_4
+@IN df_jul22_4
+@OUT df_jul16_5
+@OUT df_jul22_5
+@END Remove_Extra_Index
 Export the file as csv
 @BEGIN export_as_csv
-@IN df1
+@PARAM savePath
+@IN df_jul16_5
+@IN df_jul22_5
 @OUT Task3_quarterly_and_yearly_data.csv
-@END export_as_csv
-Export the file as csv
-@BEGIN export_as_csv
-@IN df2
 @OUT Task3_monthly_data.csv
 @END export_as_csv
 @END Task3

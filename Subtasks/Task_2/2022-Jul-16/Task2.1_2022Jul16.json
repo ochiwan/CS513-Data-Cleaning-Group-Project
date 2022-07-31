@@ -618,5 +618,29 @@
     "oldColumnName": "Exchange rate, new LCU per USD extended backward, period average,,",
     "newColumnName": "Exchange rate, new LCU per USD extended backward, period average,, (USD to EURO)",
     "description": "Rename column Exchange rate, new LCU per USD extended backward, period average,, to Exchange rate, new LCU per USD extended backward, period average,, (USD to EURO)"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Industrial Production, constant US$, seas. adj.,,",
+    "expression": "grel:(value / cells['GDP,current US$,millions,seas. adj.,'].value) / 1000000.0",
+    "onError": "set-to-blank",
+    "newColumnName": "Industrial Production Percent of GDP",
+    "columnInsertIndex": 15,
+    "description": "Create column Industrial Production Percent of GDP at index 15 based on column Industrial Production, constant US$, seas. adj.,, using expression grel:(value / cells['GDP,current US$,millions,seas. adj.,'].value) / 1000000.0"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Industrial Production % of GDP",
+    "description": "Remove column Industrial Production % of GDP"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Industrial Production Percent of GDP",
+    "newColumnName": "Industrial Production % of GDP",
+    "description": "Rename column Industrial Production Percent of GDP to Industrial Production % of GDP"
   }
 ]

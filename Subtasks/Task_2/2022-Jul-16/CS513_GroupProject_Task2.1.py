@@ -48,8 +48,8 @@ def npy_corrcoef_wrap(x,y):
     y = y[xyBool].astype(float)
     
     # Fill R at specific indices of xyWhere
-    x = (x - x.mean()) / x.std()
-    y = (y - y.mean()) / y.std()
+    x = (x / x.max())# / x.std()
+    y = (y / y.max())# / y.std()
     R_temp = x/y
     for ii in range(0,len(xyWhere)):
         R[xyWhere[ii]] = R_temp[ii] 
@@ -67,7 +67,7 @@ def npy_corrcoef_wrap(x,y):
 # @OUT df
 username = "ochig"                      # your username here (windows)
 wFolder = "Data Cleaning Project CS513" # working folder for the project here
-filepath = 'C:/Users/ochig/documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/OpenRefine/2022-Jul-16/Task2-1_quarterly_and_yearly_data_2022Jul16.csv'
+filepath = 'C:/Users/ochig/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-16/Task2-1_quarterly_and_yearly_data.csv'
 df = pd.read_csv(filepath)
 # @END get_csv_file
 
@@ -107,7 +107,7 @@ df[['Stock Market Value to CPI Correlaton']] = npy_corrcoef_wrap( df['Stock Mark
 # @BEGIN export_as_csv
 # @IN df_wCorrelations
 # @OUT Task2.1_quarterly_and_yearly_data_postPandas.csv
-savePath = 'C:/Users/ochig/documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/OpenRefine/2022-Jul-16'
+savePath = 'C:/Users/ochig/Documents/Data Cleaning Project CS513/CS513-Data-Cleaning-Group-Project/Subtasks/Task_2/2022-Jul-16'
 df.to_csv(savePath+"/Task2.1_quarterly_and_yearly_data_postPandas.csv")
 # @END export_as_csv
 
